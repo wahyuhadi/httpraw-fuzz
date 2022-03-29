@@ -1,0 +1,12 @@
+POST /api/login HTTP/1.1
+Host: 127.0.0.1
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.28.4
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: a5e54d54-9e1c-44e9-8c36-6221c9559641
+Accept-Encoding: gzip, deflate
+Connection: close
+Cookie: csrftoken=PasWeFScXDQrSedGNh0ApdnrSzkiNvZL1SscN8EZI3phwAE88RvNO1JYylmAtOGP
+
+{"user":"wahyu","password" : "wahyu"}
