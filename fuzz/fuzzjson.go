@@ -72,29 +72,6 @@ func Fuzz(req *parser.Request, raw string, opt *models.Opt) {
 				panic(err)
 			}
 
-			// var fuzzedJSON []byte
-			// unique := false
-			// for !unique {
-			// 	fuzzed := copyMap(subject)
-			// 	for j := 0; j < opt.Round; j++ {
-			// 		fuzzed = fuzzer.Fuzz(fuzzed)
-			// 	}
-
-			// 	fuzzedJSON, err = json.Marshal(fuzzed)
-			// 	if err != nil {
-			// 		gologger.Error().Str("Error", "State").Str("Message", fmt.Sprintf("%v", err.Error())).Msg("Unable to marshal fuzzed object as JSON")
-			// 	}
-
-			// 	fingerprint := makeFingerprint(fuzzedJSON)
-			// 	if _, seen := uniqMap[fingerprint]; !seen {
-			// 		uniqMap[fingerprint] = struct{}{}
-			// 		unique = true
-			// 	} else {
-			// 		gologger.Info().Msg("Generate Unique Fingerprint")
-			// 		unique = true
-			// 	}
-			// }
-
 			request.Body = ioutil.NopCloser(strings.NewReader(string(fuzzedJSON)))
 			conten, _ := strconv.ParseInt(string(fuzzedJSON), 10, 64)
 			request.ContentLength = conten
