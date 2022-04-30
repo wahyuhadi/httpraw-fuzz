@@ -16,8 +16,8 @@ import (
 	"github.com/projectdiscovery/gologger"
 	"github.com/wahyuhadi/httpraw-fuzz/models"
 	"github.com/wahyuhadi/httpraw-fuzz/parser"
-	"gitlab.com/michenriksen/jdam/pkg/jdam"
-	"gitlab.com/michenriksen/jdam/pkg/jdam/mutation"
+	"github.com/wahyuhadi/jdam/pkg/jdam"
+	"github.com/wahyuhadi/jdam/pkg/jdam/mutation"
 )
 
 var client = &http.Client{}
@@ -103,26 +103,6 @@ func Fuzz(req *parser.Request, raw string, opt *models.Opt) {
 		}
 	}
 }
-
-// func buildJsonPayload(opt *models.Opt) {
-// 	var fuzzedJSON []byte
-// 	fuzzer := jdam.NewWithSeed(5, mutation.Mutators).IgnoreFields([]string{opt.IgnoreFields})
-// 	subject := map[string]interface{}{}
-// 	err := json.Unmarshal([]byte(req.Data), &subject)
-// 	if err != nil {
-// 		gologger.Error().Str("Error", "State").Str("Message", fmt.Sprintf("%v", err.Error())).Msg("Parsing Error")
-// 		return
-// 	}
-// 	for i := 0; i < opt.Mutation; i++ {
-// 		// Fuzz a random field with a random mutator.
-// 		fuzzed := fuzzer.Fuzz(subject)
-// 		// Encode the fuzzed object into JSON.
-// 		fuzzedJSON, err = json.Marshal(fuzzed)
-// 		if err != nil {
-// 			panic(err)
-// 		}
-// 	}
-// }
 
 func copyMap(orig map[string]interface{}) map[string]interface{} {
 	cp := make(map[string]interface{})
